@@ -1,0 +1,205 @@
+@import url("https://fonts.googleapis.com/css2?family=Doto:wght@100..900&display=swap");
+
+:root {
+  --mallardGreen: #0a473a;
+  --deepTeal: #1f6f5a;
+  --softDuckBellyBeige: #faeab1;
+  --goldAccent: #c07f00;
+  --warmCream: #f4f1de;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Doto", sans-serif;
+  user-select: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+ul {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  justify-content: space-evenly;
+}
+
+li {
+  list-style: none;
+}
+
+li a {
+  font-size: 1.5em;
+  font-weight: 700;
+  text-decoration: none;
+  color: #0a473a;
+  transition: all 0.3s ease;
+}
+
+.liAnchor:hover {
+  font-size: 3em;
+}
+
+.liAnchor.active {
+  font-size: 3em;
+  font-weight: 900;
+  transition: all 0.3s ease;
+}
+
+nav {
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--warmCream);
+  display: flex;
+  flex-direction: column;
+  transition: all 1s ease-in-out;
+}
+
+header {
+  place-self: center;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 1rem;
+  height: 5rem;
+  width: 90%;
+  min-width: 40rem;
+  background-color: var(--goldAccent);
+  border-radius: 3rem;
+  border: 0.2rem solid #0a473a;
+  z-index: 1;
+}
+
+.section {
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+  justify-content: space-around;
+  position: relative;
+  bottom: 0em;
+  font-weight: 900;
+  background-color: #c07f00;
+  height: 5rem;
+  border-radius: 5rem 5rem 0rem 0rem;
+}
+
+
+footer a{
+    text-decoration: none;
+    color: var(--mallardGreen);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.box {
+  box-sizing: border-box;
+  width: 80vw;
+  height: 80vh;
+  display: flex;
+  color: black;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: 2em;
+  border-radius: 2rem;
+  border: 4px solid #0a473a;
+  box-shadow: 0.5em 0.5em 0.2em rgba(0, 0, 0, 0.319);
+}
+
+
+
+#homeBox {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "first second second"
+      "first third third"
+      "fifth fifth fourth";
+    gap: 1em;
+    justify-items: center; /* horizontal zentrieren */
+    align-items: center;   /* vertikal zentrieren */
+    padding: 1em;
+    color: #c07f00;
+}
+
+.innerBox{
+    width: 100%;
+    height: 100%;
+    background-color: #0a473a;
+    border-radius: 1rem;
+    padding: 1em;
+    display: flex;
+    overflow: hidden;
+
+}
+
+
+/* --------------------------------------------QuackSwitch------------------------------------------------------ */
+
+
+#quackBox {
+    border-radius: 50%;
+}
+ 
+label {
+    width: 3rem;
+    height: 2rem;
+    position: relative;
+    display: flex;
+    background: #0a473a;
+    border-radius: 1rem;
+    box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4), inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    rotate: 90deg;
+    transform: translatey(1rem);
+}
+ 
+label:after {
+    content: "";
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: linear-gradient(180deg, #ffcc89, #d8860b);
+    border-radius: 18px;
+    box-sizing: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+ 
+input {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+ 
+input:checked + label {
+    background: #242424;
+}
+ 
+input:checked + label:after {
+    left: 49px;
+    transform: translateX(-100%);
+    background: linear-gradient(180deg, #777, #3a3a3a);
+}
+
