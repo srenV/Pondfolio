@@ -61,7 +61,7 @@ nav {
 
 body {
   margin: 0;
-  background-color: var(--warmCream);
+  background-color: var(--softDuckBellyBeige);
   display: flex;
   flex-direction: column;
   transition: all 1s ease-in-out;
@@ -73,7 +73,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  top: .5rem;
+  top: 1rem;
   height: 4rem;
   width: 90%;
   min-width: 40rem;
