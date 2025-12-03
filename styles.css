@@ -22,6 +22,10 @@ h1 {
   font-size: 3em;
 }
 
+p{
+    margin: 0;
+}
+
 ul {
   display: flex;
   align-items: center;
@@ -141,6 +145,7 @@ footer a{
     align-items: center;   /* vertikal zentrieren */
     padding: 1em;
     color: #c07f00;
+    background-color: var(--deepTeal);
 }
 
 .innerBox{
@@ -151,7 +156,7 @@ footer a{
     padding: 1em;
     display: flex;
     overflow: hidden;
-
+    border: 5px solid #d8860b;
 }
 
 
