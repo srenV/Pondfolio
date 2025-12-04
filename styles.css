@@ -247,7 +247,7 @@ input:checked + label:after {
   }
 
   .mobileNav.active {
-    transform: translateY(24%);
+    transform: translateY(16%);
   }
 
   .mobileNav ul {
