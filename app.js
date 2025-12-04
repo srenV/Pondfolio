@@ -15,6 +15,7 @@ const quackBox = document.getElementById("quackBox");
 //checks if the current section is in the viewport and adds the "active" class to the according anchor tag in the navigation bar
 function highlightSections() {
   sections.forEach((section, index) => {
+    //getBoundingClientRect() gibt die position der section innerhalb des viewport wieder
     const rect = section.getBoundingClientRect();
 
     //checks if the middleline of the viewport is in the section (window.innerheight * 0.5 is the middle of the viewport)
