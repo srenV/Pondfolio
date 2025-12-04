@@ -90,6 +90,12 @@ header {
   justify-content: center;
   align-items: center;
   gap: 1em;
+  opacity: 0;
+  transition: all .5s ease-in-out;
+}
+
+.section.active{
+  opacity: 1;
 }
 
 footer {
@@ -141,8 +147,8 @@ footer a{
       "first third third"
       "fifth fifth fourth";
     gap: 1em;
-    justify-items: center; /* horizontal zentrieren */
-    align-items: center;   /* vertikal zentrieren */
+    justify-items: center;
+    align-items: center;  
     padding: 1em;
     color: #c07f00;
     background-color: var(--deepTeal);

@@ -16,6 +16,8 @@ function highlightSections() {
             //then it adds/removes the active class
             liAnchor.forEach(li => li.classList.remove('active'))
             liAnchor[index].classList.add('active')  
+            sections.forEach(sec => sec.classList.remove('active'))
+            sections[index].classList.add('active')
     }
     })
 }
