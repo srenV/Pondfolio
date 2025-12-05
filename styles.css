@@ -17,7 +17,6 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-snap-type: y; 
 }
 
 h1 {
@@ -229,9 +228,6 @@ footer a {
     scrollbar-width: none;
   }
 
-  html {
-    scroll-padding-top: 3em;
-  }
 
   body{
     min-height: 100svh;
