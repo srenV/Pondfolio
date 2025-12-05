@@ -229,6 +229,15 @@ footer a {
     scrollbar-width: none;
   }
 
+  html {
+    scroll-padding-top: 3em;
+  }
+
+  body{
+    padding-top: 3em;
+    min-height: 100svh;
+  }
+
   /*  Mobile Header  */
   header {
     display: none;
@@ -236,6 +245,10 @@ footer a {
 
   header label {
     display: none;
+  }
+
+  .section{
+    height: 100svh;
   }
 
   .mobileHeader {
