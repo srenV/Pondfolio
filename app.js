@@ -1,3 +1,7 @@
+//||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+//                                       Global Constants / Variables
+//||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
 //Navigation constants
 const sections = document.querySelectorAll(".section");
 const liAnchor = document.querySelectorAll(".liAnchor");
@@ -11,6 +15,12 @@ const mobileliAnchor = document.querySelectorAll('mobileliAnchor')
 //QuackToggle constants
 const quack = new Audio("./assets/075176_duck-quack-40345.mp3");
 const quackBox = document.getElementById("quackBox");
+//initialy the check needs to be false
+let quackCheck = false;
+
+//||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+//                                       Header / Section Animation
+//||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 //checks if the current section is in the viewport and adds the "active" class to the according anchor tag in the navigation bar
 function highlightSections() {
@@ -37,17 +47,23 @@ window.addEventListener("scroll", highlightSections);
 
 highlightSections();
 
-//initialy the check needs to be false
-let quackCheck = false;
+//||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+//                                       Quacksound Easteregg
+//||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
-//adds/removes an eventlistener to the whole doument if the checkbox is toggled
-quackBox.addEventListener("change", (e) => {
-  quackCheck = e.target.checked;
+
+//adds/removes an eventlistener to the whole doument if the duck got clicked
+quackBox.addEventListener("click", (e) => {
+  quackCheck = !quackCheck;
 
   if (quackCheck) {
     document.addEventListener("click", quackCall);
+    quackBox.style.filter = 'invert()'
   } else {
     document.removeEventListener("click", quackCall);
+    quackBox.style.filter = 'unset'
+    e.stopPropagation()
+    e.stopImmediatePropagation()
   }
 });
 
@@ -56,8 +72,9 @@ function quackCall() {
   quack.currentTime = 0.3;
   quack.play();
 }
-
-//Mobile Hamburger Button and eventlisteners for the closing trough an click outside 
+//||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+//                            Mobile Hamburger Button and eventlisteners
+//||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 mobileMenuBtn.addEventListener("click", (e) => {
   if (!mobileNav.classList.contains("active")) {
@@ -68,6 +85,7 @@ mobileMenuBtn.addEventListener("click", (e) => {
   e.stopPropagation();
 });
 
+//click outside to close
 mobileNav.addEventListener('click', (e) =>{
     if(e.target = mobileliAnchor){
         mobileNav.classList.remove("active");

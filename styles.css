@@ -12,15 +12,17 @@
   box-sizing: border-box;
   font-family: "Doto", sans-serif;
   user-select: none;
-  overflow-x: hidden;
+  scrollbar-width: none;
 }
 
 html {
   scroll-behavior: smooth;
+  scroll-snap-type: y proximity; 
 }
 
 h1 {
-  font-size: 3em;
+  font-size: clamp(1.5em, 2vw, 3em);
+  font-weight: 900;
 }
 
 p {
@@ -30,7 +32,7 @@ p {
 ul {
   display: flex;
   align-items: center;
-  gap: 3rem;
+  gap: clamp(0.5rem, 2vw, 3rem);
   justify-content: space-evenly;
 }
 
@@ -39,7 +41,7 @@ li {
 }
 
 li a {
-  font-size: 1.5em;
+  font-size: clamp(0.9rem, 1.2vw + 0.5rem, 1.5rem);
   font-weight: 700;
   text-decoration: none;
   color: #0a473a;
@@ -48,11 +50,11 @@ li a {
 }
 
 .liAnchor:hover {
-  font-size: 3em;
+  font-size: clamp(1.2rem, 2vw + 0.5rem, 3rem);
 }
 
 .liAnchor.active {
-  font-size: 3em;
+  font-size: clamp(1.3rem, 2.5vw + 0.5rem, 3rem);
   font-weight: 900;
   transition: all 0.3s ease;
 }
@@ -67,6 +69,9 @@ body {
   display: flex;
   flex-direction: column;
   transition: all 1s ease-in-out;
+  
+  
+  
 }
 
 header {
@@ -86,20 +91,30 @@ header {
   overflow: hidden;
 }
 
+header button{
+  position: absolute;
+  left: 0rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  scale: 50%;
+}
+
 .section {
   height: 100dvh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 1em;
   opacity: 0;
   transition: all 0.5s ease-in-out;
+  scroll-snap-align: center;
 }
 
 .section.active {
   opacity: 1;
 }
+
 
 footer {
   display: flex;
@@ -122,6 +137,7 @@ footer a {
   display: flex;
   flex-direction: column;
   gap: 2em;
+  position: relative;
 }
 
 .box {
@@ -136,66 +152,84 @@ footer a {
   font-size: 2em;
   border-radius: 2rem;
   border: 4px solid #0a473a;
+  
 }
+
+/*  Side scrolling section */
+
+#duckfacts .wrapper {
+  flex-direction: row;
+  padding-inline: 10vw;
+  gap: 10vw;
+}
+
+ .scrollBox {
+  flex: 0 0 80vw;       
+  scroll-snap-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+#duckfacts {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;       
+  scroll-snap-type: x mandatory; 
+  scroll-behavior: smooth;
+}
+
+ #duckfacts.section{
+  justify-content: start;
+  align-items: center;
+  
+}
+
+/*  Sidescrolling Section Buttons */
+  
+#navAnchor {
+  position: absolute;
+  bottom: -95vh;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1em;
+}
+
+#navAnchor a{
+  background-color: #d8860b;
+  cursor: pointer;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+}
+
 
 /* --------------------------------------------QuackSwitch------------------------------------------------------ */
 
 #quackBox {
   border-radius: 50%;
+  transform: scale(-1, 1);
 }
 
-label {
-  width: 3rem;
-  height: 2rem;
-  position: relative;
-  display: flex;
-  background: #0a473a;
-  border-radius: 1rem;
-  box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4),
-    inset 0px -5px 15px rgba(255, 255, 255, 0.4);
-  cursor: pointer;
-  rotate: 90deg;
-  transform: translatey(1rem);
-}
-
-label:after {
-  content: "";
-  width: 2rem;
-  height: 2rem;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  background: linear-gradient(180deg, #ffcc89, #d8860b);
-  border-radius: 18px;
-  box-sizing: 0px 5px 10px rgba(0, 0, 0, 0.2);
-}
-
-input {
-  width: 0;
-  height: 0;
-  visibility: hidden;
-}
-
-input:checked + label {
-  background: #242424;
-}
-
-input:checked + label:after {
-  left: 49px;
-  transform: translateX(-100%);
-  background: linear-gradient(180deg, #777, #3a3a3a);
-}
 
 /* Display none rules for the desktop version */
 .mobileHeader {
   display: none;
 }
+.mobileNav{
+  display: none;
+}
+
+/* ---------------------------------Mobile Responsivnes------------------------------- */
 
 @media (max-width: 450px) {
+
+  /*  Mobile Global Rules */
   * {
     scrollbar-width: none;
   }
 
+  /*  Mobile Header  */
   header {
     display: none;
   }
@@ -233,6 +267,7 @@ input:checked + label:after {
   }
 
   .mobileNav {
+    display: unset;
     position: fixed;
     background-color: #1f6f5a;
     height: fit-content;
@@ -248,7 +283,7 @@ input:checked + label:after {
   }
 
   .mobileNav.active {
-    transform: translateY(15%);
+    transform: translateY(30%);
   }
 
   .mobileNav ul {
@@ -266,11 +301,22 @@ input:checked + label:after {
     border-bottom: .2rem dotted #d8860b;
   }
 
+  /* Mobile Section Wrapper */
+
   .wrapper {
     gap: 0;
   }
+
+/*  Mbile Sidescroll Section Wrapper */
+
+  #home .wrapper {
+  gap: 10vw;
+  }
+
+  /*  Mobile Footer  */
 
   footer {
     display: none;
   }
 }
+

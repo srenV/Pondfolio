@@ -10,17 +10,18 @@
   </head>
   <body>
     <header>
+      <button id="quackBox">
+        <img src="./assets/duck-icon.png" alt="duck vector image" />
+      </button>
       <nav>
         <ul>
           <li><a href="#home" class="liAnchor">Home</a></li>
-          <li><a href="#duckfacts" class="liAnchor">Duck Facts</a></li>
+          <li><a href="#duckfacts" class="liAnchor">Facts</a></li>
           <h1>Pondfolio</h1>
           <li><a href="#population" class="liAnchor">Population</a></li>
           <li><a href="#species" class="liAnchor">Species</a></li>
         </ul>
       </nav>
-      <input type="checkbox" id="quackBox" />
-      <label for="quackBox"></label>
     </header>
     <div class="mobileHeader">
       <h2>Pondfolio</h2>
@@ -32,7 +33,7 @@
     <nav class="mobileNav" id="mobileNav">
       <ul>
         <li><a href="#home" class="mobileliAnchor">Home</a></li>
-        <li><a href="#duckfacts" class="mobileliAnchor">Duck Facts</a></li>
+        <li><a href="#duckfacts" class="mobileliAnchor">Facts</a></li>
         <li><a href="#population" class="mobileliAnchor">Population</a></li>
         <li><a href="#species" class="mobileliAnchor">Species</a></li>
       </ul>
@@ -47,10 +48,25 @@
 
     <div class="section" id="duckfacts">
       <div class="wrapper">
-        <div class="box" id="duckFactsBox">
-          <h2>Duck Facts</h2>
-          <div id="duckFact"></div>
+        <div class="box scrollBox" id="sideBox">
+          <h2>sec 0</h2>
+          <p>Scroll =></p>
         </div>
+
+        <div class="box scrollBox" id="sideBox1">
+          <h2>sec 1</h2>
+          <p><= Scroll =></p>
+        </div>
+
+        <div class="box scrollBox" id="sideBox2">
+          <h2>sec 2</h2>
+          <p><= Scroll</p>
+        </div>
+      </div>
+      <div id="navAnchor">
+        <a href="#sideBox"></a>
+        <a href="#sideBox1"></a>
+        <a href="#sideBox2"></a>
       </div>
     </div>
 
