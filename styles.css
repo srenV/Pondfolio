@@ -17,7 +17,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-snap-type: y proximity; 
+  scroll-snap-type: y; 
 }
 
 h1 {
@@ -107,7 +107,7 @@ header button{
   align-items: center;
   gap: 1em;
   opacity: 0;
-  transition: all 0.5s ease-in-out;
+  transition: all 1s ease-in-out;
   scroll-snap-align: center;
 }
 
@@ -309,8 +309,12 @@ footer a {
 
 /*  Mbile Sidescroll Section Wrapper */
 
-  #home .wrapper {
+  #duckFacts .wrapper {
   gap: 10vw;
+  }
+
+  #navAnchor{
+    display: none;
   }
 
   /*  Mobile Footer  */
