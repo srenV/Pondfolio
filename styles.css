@@ -234,7 +234,6 @@ footer a {
   }
 
   body{
-    padding-top: 3em;
     min-height: 100svh;
   }
 
@@ -249,6 +248,10 @@ footer a {
 
   .section{
     height: 100svh;
+  }
+
+  .box{
+    height: 80svh;
   }
 
   .mobileHeader {
