@@ -9,6 +9,9 @@
     <title>Pondfolio</title>
   </head>
   <body>
+
+<!-- ------------------------------------------------------------------------- -->
+<!-- -------------------------------- Header---------------------------------- -->
 <!-- ------------------------------------------------------------------------- -->
 
     <header>
@@ -27,6 +30,9 @@
     </header>
 
 <!-- ------------------------------------------------------------------------- -->
+<!-- -------------------------------Mobile Header----------------------------- -->
+<!-- ------------------------------------------------------------------------- -->
+
     <div class="mobileHeader">
       <h2>Pondfolio</h2>
       <button class="mobileMenuBtn">
@@ -40,17 +46,27 @@
         <li><a href="#duckfacts" class="mobileliAnchor">Facts</a></li>
         <li><a href="#population" class="mobileliAnchor">Population</a></li>
         <li><a href="#species" class="mobileliAnchor">Species</a></li>
+        <li><a href="./impressum.html" class="mobileliAnchor">Impressum</a></li>
+        <li><a href="./contact.html" class="mobileliAnchor">Contact</a></li>
       </ul>
     </nav>
 
 <!-- ------------------------------------------------------------------------- -->
-<!-- ------------------------------------------------------------------------- -->
+<!-- -------------------------------Sections---------------------------------- -->
 <!-- ------------------------------------------------------------------------- -->
 
     <div class="section" id="home">
       <div class="wrapper">
+        
         <div class="box" id="homeBox">
           <h2>Home</h2>
+          <h3>Todo</h3>
+          <ul>
+            <li>Smooth cross site animation</li>
+            <li>Back to top button (sticky)</li>
+            <li>Onsite no history navigation</li>
+          </ul>
+          <p></p>
         </div>
       </div>
     </div>
@@ -74,10 +90,10 @@
           <p><= Scroll</p>
         </div>
       </div>
-      <div id="navAnchor">
-        <a href="#sideBox"></a>
-        <a href="#sideBox1"></a>
-        <a href="#sideBox2"></a>
+      <div id="navButton">
+        <span onclick="navigateToSection('sideBox')" class="scrollSpan"></span>
+        <span onclick="navigateToSection('sideBox1')" class="scrollSpan"></span>
+        <span onclick="navigateToSection('sideBox2')" class="scrollSpan"></span>
       </div>
     </div>
 
@@ -103,7 +119,7 @@
     </div>
 
 <!-- ------------------------------------------------------------------------- -->
-<!-- ------------------------------------------------------------------------- -->
+<!-- ---------------------------------Footer---------------------------------- -->
 <!-- ------------------------------------------------------------------------- -->
 
     <footer>

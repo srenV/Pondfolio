@@ -6,6 +6,10 @@
 const sections = document.querySelectorAll(".section");
 const liAnchor = document.querySelectorAll(".liAnchor");
 
+const scrollBox = document.querySelectorAll('.scrollBox')
+const scrollSpan = document.querySelectorAll('.scrollSpan')
+const scrollWrapper = document.getElementById('duckfacts')
+
 //Mobile navigation
 const mobileMenuBtn = document.querySelector(".mobileMenuBtn");
 const mobileNav = document.getElementById("mobileNav");
@@ -19,7 +23,7 @@ const quackBox = document.getElementById("quackBox");
 let quackCheck = false;
 
 //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-//                                       Header / Section Animation
+//                                       Header / Section / Scrollsection Animation
 //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 //checks if the current section is in the viewport and adds the "active" class to the according anchor tag in the navigation bar
@@ -42,10 +46,36 @@ function highlightSections() {
   });
 }
 
+// the same function but this time we are checking the vertical axis for the hoizontal scroll
+function highlightScrollSection(){
+  scrollBox.forEach((box, index) => {
+    const rect = box.getBoundingClientRect();
+
+    if (
+      rect.left < window.innerWidth * 0.5 &&
+      rect.right > window.innerWidth * 0.5
+    ) {
+      //then it adds/removes the active class
+      scrollSpan.forEach((sb) => sb.classList.remove("active"));
+      scrollSpan[index].classList.add("active");
+      scrollBox.forEach((sbb) => sbb.classList.remove("active"));
+      scrollBox[index].classList.add("active");
+    }
+  })
+}
+
 //This eventlistener reacts to scrolling and calls the highlightSection function
-window.addEventListener("scroll", highlightSections);
+
+window.addEventListener('scroll', () =>{
+  highlightSections()
+})
+
+scrollWrapper.addEventListener('scroll' , () =>{
+  highlightScrollSection()
+})
 
 highlightSections();
+highlightScrollSection()
 
 //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 //                                       Quacksound Easteregg
@@ -62,14 +92,13 @@ quackBox.addEventListener("click", (e) => {
   } else {
     document.removeEventListener("click", quackCall);
     quackBox.style.filter = 'unset'
-    e.stopPropagation()
     e.stopImmediatePropagation()
   }
 });
 
 //just a helper for the eventlistener to call the sound
 function quackCall() {
-  quack.currentTime = 0.3;
+  quack.currentTime = 0.1;
   quack.play();
 }
 //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
@@ -104,3 +133,19 @@ mobileliAnchor.forEach((anchor)=>{
         mobileNav.classList.remove("active");
     })
 })
+
+
+//||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+//                        Innersite Navigating without filling the Browser History
+//||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+function navigateToSection(sectionId){
+  //scroll to the Id
+  const targetId = document.getElementById(sectionId);
+  if(targetId){   //do it smooth
+    targetId.scrollIntoView({behavior: 'smooth'});
+  
+    //the url still changes but without a history entry
+    history.replaceState(null, '', `#${sectionId}`);
+  }
+}

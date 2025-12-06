@@ -142,7 +142,7 @@ nav {
   align-items: center;
   gap: 1em;
   opacity: 0;
-  transition: all 1s ease-in-out;
+  transition: all 1s ease;
   scroll-snap-align: center;
 }
 
@@ -160,8 +160,8 @@ nav {
 
 .box {
   box-sizing: border-box;
-  width: 80vw;
-  height: 80vh;
+  width: 95vw;
+  height: 85vh;
   display: flex;
   color: black;
   justify-content: center;
@@ -170,14 +170,32 @@ nav {
   font-size: 2em;
   border-radius: 2rem;
   border: 4px solid #0a473a;
-  
+  padding: 1em;
 }
+
+#homeBox{
+  display: flex;
+  flex-direction: column;
+}
+
+#homeBox ul{
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+#homeBox li {
+  list-style: square;
+  border-bottom: .2em solid;
+}
+
 /* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
 /*  ----------------------------------------Side scrolling section---------------------------------------------- */
 /* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
 
 #duckfacts .wrapper {
   flex-direction: row;
+  justify-content: space-between;
   padding-inline: 10vw;
   gap: 10vw;
 }
@@ -185,15 +203,22 @@ nav {
  .scrollBox {
   flex: 0 0 80vw;       
   scroll-snap-align: center;
-  
   display: flex;
   flex-direction: column;
+  transition: all 1s ease-in-out;
+  scale: 50%;
+}
+
+.scrollBox.active{
+  background-color: #0a473a;
+  scale: 100%;
+  color: white;
 }
 
 #duckfacts {
   display: flex;
   flex-direction: row;
-  overflow-x: auto;       
+  overflow-x: scroll;       
   scroll-snap-type: x mandatory; 
   scroll-behavior: smooth;
 }
@@ -206,7 +231,7 @@ nav {
 
 /*  Sidescrolling Section Buttons */
   
-#navAnchor {
+#navButton {
   position: absolute;
   bottom: -95vh;
   left: 50%;
@@ -215,12 +240,16 @@ nav {
   gap: 1em;
 }
 
-#navAnchor a{
+.scrollSpan{
   background-color: #d8860b;
   cursor: pointer;
   width: 1em;
   height: 1em;
   border-radius: 50%;
+}
+
+.scrollSpan.active{
+  border: .2em solid #0a473a;
 }
 
 /* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
@@ -233,7 +262,7 @@ footer {
   justify-content: space-around;
   gap: 2em;
   position: relative;
-  bottom: 0em;
+  bottom: 6em;
   width: 90dvw;
   font-weight: 900;
   background-color: #c07f00;
@@ -242,7 +271,6 @@ footer {
   border: 0.2rem solid #0a473a;
   padding: 2em;
   place-self: center;
-  margin-bottom: 1em;
 }
 
 footer a {
@@ -301,7 +329,7 @@ footer a {
     align-items: center;
     background-color: #c07f00;
     padding-inline: 1em;
-    z-index: 1;
+    z-index: 2;
     position: fixed;
     top: 0;
     height: 3em;
@@ -335,7 +363,7 @@ footer a {
   }
 
   .mobileNav.active {
-    transform: translateY(30%);
+    transform: translateY(22%);
   }
 
   .mobileNav ul {
@@ -371,7 +399,7 @@ footer a {
   gap: 10vw;
   }
 
-  #navAnchor{
+  #navButton{
     display: none;
   }
 
