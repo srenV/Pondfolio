@@ -317,10 +317,6 @@ footer a {
     min-height: 100svh;
   }
 
-  html{
-    scroll-snap-type: y mandatory;
-  }
-
 /* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
 /* -----------------------------------------------Mobile Header------------------------------------------------- */
 /* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
@@ -403,12 +399,13 @@ footer a {
   .box{
     height: calc(var(--vh) * 0.9 - 3em);
     width: 95vw;
-
+    scroll-snap-align: y start;
   }
 
   .wrapper {
     gap: 0;
     padding-top: calc(3em + env(safe-area-inset-top));
+    scroll-snap-type: y mandatory;
   }
 
 /*  Mbile Sidescroll Section Wrapper */
