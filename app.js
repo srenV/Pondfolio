@@ -23,6 +23,14 @@ const quackBox = document.getElementById("quackBox");
 let quackCheck = false;
 
 //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+//                           Automatic Viewport Adjust if Navigation/URL bars pop up on mobile
+//||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+function setVh() {
+  document.documentElement.style.setProperty('--vh', `${window.innerHeight}px`)
+}
+
+//||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 //                                       Header / Section / Scrollsection Animation
 //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
