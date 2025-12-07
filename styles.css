@@ -405,7 +405,6 @@ footer a {
   .wrapper {
     gap: 0;
     padding-top: calc(3em + env(safe-area-inset-top));
-    scroll-snap-type: y mandatory;
   }
 
 /*  Mbile Sidescroll Section Wrapper */
