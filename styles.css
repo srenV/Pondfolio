@@ -341,7 +341,7 @@ footer a {
     background-color: #c07f00;
     padding-inline: 1em;
     z-index: 2;
-    position: fixed;
+    position: sticky;
     top: 0;
     height: 3em;
   }
@@ -404,6 +404,7 @@ footer a {
 
   .wrapper {
     gap: 0;
+    padding-top: calc(3em + env(safe-area-inset-top));
   }
 
 /*  Mbile Sidescroll Section Wrapper */
