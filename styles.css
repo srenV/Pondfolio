@@ -399,7 +399,7 @@ footer a {
   .box{
     height: calc(var(--vh * 0.9));
     width: 95vw;
-    border: none;
+
   }
 
   .wrapper {
