@@ -397,7 +397,8 @@ footer a {
 /* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
 
   .box{
-    height: 80svh;
+    height: calc(var(--vh * 0.9));
+    width: 95vw;
   }
 
   .wrapper {
@@ -408,6 +409,10 @@ footer a {
 
   #duckFacts .wrapper {
   gap: 10vw;
+  }
+
+  .scrollBox{
+    flex: 0 0 95vw;
   }
 
   #navButton{
