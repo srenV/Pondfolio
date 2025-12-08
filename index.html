@@ -42,10 +42,10 @@
 
     <nav class="mobileNav" id="mobileNav">
       <ul>
-        <li><a href="#home" class="mobileliAnchor">Home</a></li>
-        <li><a href="#duckfacts" class="mobileliAnchor">Facts</a></li>
-        <li><a href="#population" class="mobileliAnchor">Population</a></li>
-        <li><a href="#species" class="mobileliAnchor">Species</a></li>
+        <li><span onclick="navigateToSection('home')" class="mobileliAnchor">Home</span></li>
+        <li><span onclick="navigateToSection('duckfacts')" class="mobileliAnchor">Facts</span></li>
+        <li><span onclick="navigateToSection('population')" class="mobileliAnchor">Population</span></li>
+        <li><span onclick="navigateToSection('species')" class="mobileliAnchor">Species</span</li>
         <li><a href="./impressum.html" class="mobileliAnchor">Impressum</a></li>
         <li><a href="./contact.html" class="mobileliAnchor">Contact</a></li>
       </ul>
@@ -63,8 +63,7 @@
           <h3>Todo</h3>
           <ul>
             <li>Smooth cross site animation</li>
-            <li>Back to top button (sticky)</li>
-            <li>Onsite no history navigation</li>
+            <li>infinity castle entrance</li>
           </ul>
           <p></p>
         </div>
@@ -117,6 +116,14 @@
         </div>
       </div>
     </div>
+
+<!-- ------------------------------------------------------------------------- -->
+<!-- ----------------------------Back to Top Btn------------------------------ -->
+<!-- ------------------------------------------------------------------------- -->
+
+<button id="backToTopBtn"><img src="./backToTop.png" alt=""></button>
+<div class="entrance" id="entryLeft"></div>
+<div class="entrance" id="entryRight"></div>
 
 <!-- ------------------------------------------------------------------------- -->
 <!-- ---------------------------------Footer---------------------------------- -->

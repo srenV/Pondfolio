@@ -6,15 +6,19 @@
 const sections = document.querySelectorAll(".section");
 const liAnchor = document.querySelectorAll(".liAnchor");
 
-const scrollBox = document.querySelectorAll('.scrollBox')
-const scrollSpan = document.querySelectorAll('.scrollSpan')
-const scrollWrapper = document.getElementById('duckfacts')
+const scrollBox = document.querySelectorAll(".scrollBox");
+const scrollSpan = document.querySelectorAll(".scrollSpan");
+const scrollWrapper = document.getElementById("duckfacts");
+
+//Back to top Button
+
+const backToTopBtn = document.getElementById("backToTopBtn");
 
 //Mobile navigation
 const mobileMenuBtn = document.querySelector(".mobileMenuBtn");
 const mobileNav = document.getElementById("mobileNav");
 
-const mobileliAnchor = document.querySelectorAll('mobileliAnchor')
+const mobileliAnchor = document.querySelectorAll("mobileliAnchor");
 
 //QuackToggle constants
 const quack = new Audio("./assets/075176_duck-quack-40345.mp3");
@@ -27,11 +31,11 @@ let quackCheck = false;
 //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 function setVh() {
-  document.documentElement.style.setProperty('--vh', `${window.innerHeight}px`)
+  document.documentElement.style.setProperty("--vh", `${window.innerHeight}px`);
 }
 
-window.addEventListener('resize', setVh)
-setVh()
+window.addEventListener("resize", setVh);
+setVh();
 //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 //                                       Header / Section / Scrollsection Animation
 //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
@@ -48,16 +52,39 @@ function highlightSections() {
       rect.bottom > window.innerHeight * 0.5
     ) {
       //then it adds/removes the active class
+      //liAnchor.active animates the desktop header by increasing the font size
       liAnchor.forEach((li) => li.classList.remove("active"));
       liAnchor[index].classList.add("active");
+      //section.active animates the sections by letting it grow and setting the opacity to 1
       sections.forEach((sec) => sec.classList.remove("active"));
       sections[index].classList.add("active");
+
+      //Check if the current section is 'home', if not make the backToTopBtn visible
+      if (section.id === "home") {
+        backToTopBtn.style.opacity = "0";
+      } else {
+        backToTopBtn.style.opacity = "1";
+      }
     }
+
+    // Back to top logic
+
+    backToTopBtn.addEventListener("click", () => {
+      document.getElementById("home").scrollIntoView({ behavior: "smooth" });
+
+      document.getElementById('entryLeft').classList.remove('active')
+      document.getElementById('entryRight').classList.remove('active')
+
+      setTimeout(() => {
+        document.getElementById('entryLeft').classList.add('active')
+        document.getElementById('entryRight').classList.add('active')
+      }, 600);
+    });
   });
 }
 
 // the same function but this time we are checking the vertical axis for the hoizontal scroll
-function highlightScrollSection(){
+function highlightScrollSection() {
   scrollBox.forEach((box, index) => {
     const rect = box.getBoundingClientRect();
 
@@ -71,26 +98,25 @@ function highlightScrollSection(){
       scrollBox.forEach((sbb) => sbb.classList.remove("active"));
       scrollBox[index].classList.add("active");
     }
-  })
+  });
 }
 
 //This eventlistener reacts to scrolling and calls the highlightSection function
 
-window.addEventListener('scroll', () =>{
-  highlightSections()
-})
+window.addEventListener("scroll", () => {
+  highlightSections();
+});
 
-scrollWrapper.addEventListener('scroll' , () =>{
-  highlightScrollSection()
-})
+scrollWrapper.addEventListener("scroll", () => {
+  highlightScrollSection();
+});
 
 highlightSections();
-highlightScrollSection()
+highlightScrollSection();
 
 //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 //                                       Quacksound Easteregg
 //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-
 
 //adds/removes an eventlistener to the whole doument if the duck got clicked
 quackBox.addEventListener("click", (e) => {
@@ -98,11 +124,11 @@ quackBox.addEventListener("click", (e) => {
 
   if (quackCheck) {
     document.addEventListener("click", quackCall);
-    quackBox.style.filter = 'invert()'
+    quackBox.style.filter = "invert()";
   } else {
     document.removeEventListener("click", quackCall);
-    quackBox.style.filter = 'unset'
-    e.stopImmediatePropagation()
+    quackBox.style.filter = "unset";
+    e.stopImmediatePropagation();
   }
 });
 
@@ -124,38 +150,45 @@ mobileMenuBtn.addEventListener("click", (e) => {
   e.stopPropagation();
 });
 
-//click outside to close
-mobileNav.addEventListener('click', (e) =>{
-    if(e.target = mobileliAnchor){
-        mobileNav.classList.remove("active");
-    }
-    e.stopPropagation()
-})
+// close the mobile nav if a span is clicked
+mobileNav.addEventListener("click", (e) => {
+  if (e.target.matches('span')) {
+    mobileNav.classList.remove("active");
+  }
+  e.stopPropagation();
+});
 
+//click outside to close
 document.addEventListener("click", (e) => {
   mobileNav.classList.remove("active");
 });
-
-// close the mobile nav if a anchor is clicked
-
-mobileliAnchor.forEach((anchor)=>{
-    anchor.addEventListener('click', () =>{
-        mobileNav.classList.remove("active");
-    })
-})
-
 
 //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 //                        Innersite Navigating without filling the Browser History
 //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
-function navigateToSection(sectionId){
+function navigateToSection(sectionId) {
   //scroll to the Id
   const targetId = document.getElementById(sectionId);
-  if(targetId){   //do it smooth
-    targetId.scrollIntoView({behavior: 'smooth'});
-  
+  if (targetId) {
+    //do it smooth
+    targetId.scrollIntoView({ behavior: "smooth" });
+
     //the url still changes but without a history entry
-    history.replaceState(null, '', `#${sectionId}`);
+    history.replaceState(null, "", `#${sectionId}`);
   }
 }
+
+
+//||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+//                                           Entry animation
+//||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.getElementById('entryLeft').classList.add('active')
+    document.getElementById('entryRight').classList.add('active')
+    quackCall();
+  }, 500);
+  
+});
