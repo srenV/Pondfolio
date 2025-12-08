@@ -23,6 +23,9 @@ const mobileliAnchor = document.querySelectorAll("mobileliAnchor");
 //QuackToggle constants
 const quack = new Audio("./assets/075176_duck-quack-40345.mp3");
 const quackBox = document.getElementById("quackBox");
+
+//Infinity Castle Biwa Sound
+const biwa = new Audio('./assets/biwa.mp3')
 //initialy the check needs to be false
 let quackCheck = false;
 
@@ -71,14 +74,6 @@ function highlightSections() {
 
     backToTopBtn.addEventListener("click", () => {
       document.getElementById("home").scrollIntoView({ behavior: "smooth" });
-
-      document.getElementById('entryLeft').classList.remove('active')
-      document.getElementById('entryRight').classList.remove('active')
-
-      setTimeout(() => {
-        document.getElementById('entryLeft').classList.add('active')
-        document.getElementById('entryRight').classList.add('active')
-      }, 600);
     });
   });
 }
@@ -186,9 +181,9 @@ function navigateToSection(sectionId) {
 
 window.addEventListener("load", () => {
   setTimeout(() => {
-    document.getElementById('entryLeft').classList.add('active')
-    document.getElementById('entryRight').classList.add('active')
-    quackCall();
+    document.body.style.opacity = 1
   }, 500);
   
 });
+
+

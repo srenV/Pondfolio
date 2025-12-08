@@ -292,8 +292,8 @@ footer a {
 
 #backToTopBtn {
   position: fixed;
-  bottom: 1vh;
-  right: 1vw;
+  bottom: 2rem;
+  right: 2rem;
   border-radius: 50%;
   height: 3rem;
   width: 3rem;
@@ -311,38 +311,6 @@ footer a {
 
 #backToTopBtn:hover {
   background-color: #e18c0c;
-}
-
-/* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
-/* ------------------------------------Initial Load and Back to Top Animation----------------------------------- */
-/* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
-
-.entrance {
-  height: var(--vh);
-  width: 50%;
-  z-index: 999;
-  position: fixed;
-  background-image: url(./paperDoor.png);
-  background-size: contain;
-  background-repeat: repeat-y;
-  background-position: center;
-  transition: all 0.5s ease;
-}
-
-#entryLeft {
-  left: 0;
-}
-
-#entryRight {
-  right: 0;
-}
-
-#entryLeft.active {
-  transform: translateX(-100%);
-}
-
-#entryRight.active {
-  transform: translateX(100%);
 }
 
 /* |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
